@@ -1,0 +1,34 @@
+<%= render 'welcome/header' %>
+<p id="notice"><%= notice %></p>
+
+<h1>Songs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Song title</th>
+      <th>Album title</th>
+      <th>Lyrics</th>
+      <th>Lyricist</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songs.each do |song| %>
+      <tr>
+        <td><%= song.song_title %></td>
+        <td><%= song.album_title %></td>
+        <td><%= song.lyrics %></td>
+        <td><%= song.lyricist %></td>
+        <td><%= link_to 'Show', song %></td>
+        <td><%= link_to 'Edit', edit_song_path(song) %></td>
+        <td><%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Song', new_song_path %>
